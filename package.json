@@ -1,0 +1,41 @@
+{
+  "name": "mapp",
+  "version": "0.0.1",
+  "description": "A Twitter mood map",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.9.7",
+    "socket.io": "^1.1.0",
+    "twit": "^1.1.18"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jasmine-node": "^0.2.1",
+    "istanbul": "^0.3.2",
+    "jasmine-node": "^1.14.5",
+    "mocha": "^1.21.5",
+    "zombie": "^2.0.8"
+  },
+  "scripts": {
+    "start": "node server",
+    "test": "mocha && jasmine-node --verbose spec/node",
+    "istanbul": "./node_modules/.bin/istanbul test ./node_modules/.bin/jasmine-node -- --verbose spec/node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spike01/mapp.git"
+  },
+  "author": "iblockchain, silver-io, ch2ch3, ElliotLewis8923, spike01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spike01/mapp/issues"
+  },
+  "homepage": "https://github.com/spike01/mapp"
+}

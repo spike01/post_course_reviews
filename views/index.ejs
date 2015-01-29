@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tweetMapp</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
+</head>
+<body>
+
+  <section id="tweet-stream-display">
+    <ul></ul>
+  </section>
+
+  <section id="legend-container">
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <article class="legend"></article>
+    <br clear="all">
+    <label class="negative">Negative</label>
+    <label class="neutral">Neutral</label>
+    <label class="positive">Positive</label>
+  </section>
+
+  <section id="overlay-text">
+    <p>We send thousands of tweets every second.</p>
+    <p>Some are <span class="positive"><em>positive</em></span>, some are <span class="negative"><em>negative</em></span>.</p>
+    <p>What if you could see a mood map of the world in real time?</p>
+    <br>
+    <p id="click-play">Click the play button to start.</p>
+  </section>
+
+  <canvas id="map"></canvas>
+
+  <section id="about-modal" class="modal-display">
+    <p>tweetMapp processes an average of 3000 tweets a minute, received directly from the Twitter live stream. Each word is analysed for emotional content (according to the <a href="http://neuro.imm.dtu.dk/wiki/AFINN">AFINN database</a>) and assigned a score, e.g. +3 for 'happy' and -2 for 'sad'. The average score of a tweet determines its colour. Finally, we use geographical data to locate it on the map.</p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="tweetmapp" data-size="large" data-count="none">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </section>
+
+  <section id="credits-modal" class="modal-display">
+    <p><a href="http://github.com/ElliotLewis8923">Elliot</a>, <a href="http://github.com/silver-io">Javier</a>, <a href="http://github.com/ch2ch3">Ethel</a>, and <a href="http://github.com/spike01">Spike</a> made this as a final project at <a href="http://www.makersacademy.com/">Makers Academy</a>. With thanks to <a href='#' id="yohort" rel="modal:close">#YOHORT</a>.</p>
+    <p><a href="https://github.com/google/material-design-icons/releases/tag/1.0.0">Material Design Icons</a> by <a href="http://www.google.com/design/">Google Design</a>, used under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>. Colours changed to white and blue.</p>
+
+    <p>Contains information from <a href="http://neuro.imm.dtu.dk/wiki/AFINN">AFINN</a>, which is made available here under the <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> (ODbL). Translated into Bahasa Indonesia, Danish, French, German, Portuguese, Russian, Spanish, and Turkish with <a href="http://translate.google.com/">Google Translate</a>.</p>
+  </section>
+
+  <footer>
+    <section id="instructions">
+      <p>Scroll to zoom. Click and drag to move around.</p>
+      <p>Click the tweet display to toggle speed.</p>
+    </section>
+
+    <section id="tweet-count-text"><h1 id="tweet-count">0 </h1>tweets</section>
+
+    <section id="about">
+      <a href="#about-modal" rel="modal:open">About</a><br>
+      <a href="#credits-modal" rel="modal:open">Credits</a>
+    </section>
+
+    <section id="transport">
+      <button id="play"></button>
+      <button id="pause"></button>
+      <button id="stop"></button>
+    </section>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/canvasSetup.js"></script>
+  <script src="js/draw.js"></script>
+  <script src="js/streamDisplay.js"></script>
+  <script src="js/socket.js"></script>
+  <script src="js/artMode.js"></script>
+</body>
+</html>
